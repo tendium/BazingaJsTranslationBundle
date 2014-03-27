@@ -93,6 +93,13 @@ var Translator = (function(document, undefined) {
             return _messages[_locale][_domain][id];
         }
 
+        if (_locale != localeFallback) {
+            if (undefined != _messages[localeFallback][_domain] &&
+                undefined != _messages[localeFallback][_domain][id]) {
+                return _messages[localeFallback][_domain][id];
+            }
+        }
+
         return id;
     }
 
